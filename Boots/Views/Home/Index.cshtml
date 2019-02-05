@@ -1,0 +1,31 @@
+﻿@model Boots.Models.ProductDetailsModel
+
+@{
+    ViewBag.Title = "Product";
+}
+
+<div class="page-header">
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-primary drop-shadow noroundbox">
+            <div class="panel-heading noroundbox">
+                <div class="panel-title">Product</div>
+            </div>
+            <div class="panel-body">
+                @{Html.RenderPartial("Product",Model.ProductModel);}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="panel panel-primary drop-shadow noroundbox">
+            <div class="panel-heading noroundbox">
+                <h5 class="panel-title">Product list</h5>
+            </div>
+            <div class="panel-body" id="producList">
+                @Html.Partial("ProductList",Model.ProductList)
+            </div>
+        </div>
+    </div>
+</div>

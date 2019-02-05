@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Boots.Models.Product>
+
+<table>
+
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div>
+                        <div>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </div>
+                        <div>
+                            <img src=@string.Format("{0}{1}","/Images/products/",item.ImageUrl) style="height:50%;width:50%" />
+                        </div>
+                        <div class="center">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="@item.ProductId">
+                                        <span class="fa fa-minus"></span>
+                                    </button>
+                                </span>
+                                <input type="text" name="@item.ProductId" class="form-control input-number" value="0" min="1" max="100">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="@item.ProductId">
+                                        <span class="fa fa-plus"></span>
+                                    </button>
+                                </span>
+                            </div>
+                            <div>
+                                <br />
+                                <button type="button" class="btn bg-primary"><i class="fa fa-cart" />Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td class="center">No product(s) found</td>
+        </tr>
+    }
+</table>

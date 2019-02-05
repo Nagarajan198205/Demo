@@ -1,0 +1,42 @@
+﻿
+@model Boots.Models.ProductModel
+
+<div>
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control", id = "txtProdutName" } })
+            </div>
+            <div class="col-xs-2 padding-left">
+                <a href="#" class="btn btn-info" id="btnScanProduct" data-toggle="modal" data-target="#imageCaptureModal"><i class="fa fa-camera"></i></a>
+            </div>
+            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div id="imageCaptureModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Scan a product</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <video playsinline muted id="video" width="280" height="190" autoplay></video>
+                        <br />
+                        <input type="button" class="btn btn-primary" id="btnCapture" value="Capture" />
+                        <canvas id="canvas" width="280" style="visibility:hidden" height="190"></canvas>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnClosePopup" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
